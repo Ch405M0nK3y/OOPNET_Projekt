@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\WFormsProjekt\\WFormsProjekt.csproj": {}
+    "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\WPFProjekt\\WPFProjekt.csproj": {}
   },
   "projects": {
     "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\DataLayer\\DataLayer.csproj": {
@@ -73,14 +73,14 @@
         }
       }
     },
-    "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\WFormsProjekt\\WFormsProjekt.csproj": {
+    "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\WPFProjekt\\WPFProjekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\WFormsProjekt\\WFormsProjekt.csproj",
-        "projectName": "WFormsProjekt",
-        "projectPath": "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\WFormsProjekt\\WFormsProjekt.csproj",
+        "projectUniqueName": "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\WPFProjekt\\WPFProjekt.csproj",
+        "projectName": "WPFProjekt",
+        "projectPath": "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\WPFProjekt\\WPFProjekt.csproj",
         "packagesPath": "C:\\Users\\Mustank\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\WFormsProjekt\\obj\\",
+        "outputPath": "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\WPFProjekt\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mustank\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -127,7 +127,7 @@
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },
-            "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "Microsoft.WindowsDesktop.App.WPF": {
               "privateAssets": "none"
             }
           },
