@@ -23,13 +23,13 @@ namespace WFormsProjekt
                 */
                 config = configRepository.Load(PATH);
                 SetCulture(config.PreferredLanguage.ToString().ToLower());
-                InitializeComponent();
-                SetCheckboxes();
             }
             catch (Exception e)
             {
                 MessageBox.Show($"Error occured when trying to access config file. {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            InitializeComponent();
+            SetCheckboxes();
         }
         private void Settings_Load(object sender, EventArgs e)
         {
@@ -164,7 +164,6 @@ namespace WFormsProjekt
 
         private void Settings_KeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.Enter)
             {
                 btnConfirm.PerformClick();
@@ -174,8 +173,6 @@ namespace WFormsProjekt
             {
                 btnCancel.PerformClick();
             }
-
         }
-
     }
 }

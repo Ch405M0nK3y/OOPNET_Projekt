@@ -1,0 +1,1 @@
+{"LoadingType":0,"PreferredLanguage":1,"Priority":0,"FavoriteRepFifaCode":"","FavoritePlayers":[],"LocalPath":"","IsFirstSetup":false,"WPFWidth":0.0,"WPFHeight":0.0,"ImagePaths":{}}

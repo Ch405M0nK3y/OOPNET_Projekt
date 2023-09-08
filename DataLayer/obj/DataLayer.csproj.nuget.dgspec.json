@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mustank\\source\\repos\\OOPNET_Projekt_Martin_Plaftaric\\DataLayer\\DataLayer.csproj": {}
+    "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\DataLayer\\DataLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mustank\\source\\repos\\OOPNET_Projekt_Martin_Plaftaric\\DataLayer\\DataLayer.csproj": {
+    "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mustank\\source\\repos\\OOPNET_Projekt_Martin_Plaftaric\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\Mustank\\source\\repos\\OOPNET_Projekt_Martin_Plaftaric\\DataLayer\\DataLayer.csproj",
+        "projectPath": "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\DataLayer\\DataLayer.csproj",
         "packagesPath": "C:\\Users\\Mustank\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mustank\\source\\repos\\OOPNET_Projekt_Martin_Plaftaric\\DataLayer\\obj\\",
+        "outputPath": "C:\\Users\\Mustank\\Source\\Repos\\OOPNET_Projekt\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mustank\\AppData\\Roaming\\NuGet\\NuGet.Config",

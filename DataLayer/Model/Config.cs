@@ -28,6 +28,9 @@ namespace DAL
         public List<string>? FavoritePlayers { get; set; }
         public string LocalPath { get; set; }
         public bool IsFirstSetup { get; set; }
+        public double WPFWidth { get; set; }
+        public double WPFHeight { get; set; }
+
 
         public IDictionary<string,string> ImagePaths { get; set; }
 
@@ -39,6 +42,8 @@ namespace DAL
             PreferredLanguage = Language.EN;
             FavoriteRepFifaCode = "";
             IsFirstSetup= true;
+            WPFWidth = 800;
+            WPFHeight = 600;
             ImagePaths = new Dictionary<string,string>();
         }
 
