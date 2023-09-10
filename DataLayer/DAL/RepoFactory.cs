@@ -11,5 +11,6 @@ namespace DataLayer.DAL
         public static PlayerRepository GetPlayerRepository() => new PlayerRepository();
         public static RepresentationRepository GetRepresentationRepository() => new RepresentationRepository();
         public static ConfigRepository GetConfigRepository() => new ConfigRepository();
+        public static MatchesRepository GetMatchesRepository() => new MatchesRepository();
     }
 }

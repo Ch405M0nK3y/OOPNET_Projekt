@@ -37,7 +37,7 @@ namespace DAL
         public Config() {
             FavoritePlayers = new List<string>();
             LocalPath= string.Empty;
-            LoadingType= FileLoadingType.JSON;
+            LoadingType= FileLoadingType.WEB;
             Priority = DesiredPriority.Men;
             PreferredLanguage = Language.EN;
             FavoriteRepFifaCode = "";

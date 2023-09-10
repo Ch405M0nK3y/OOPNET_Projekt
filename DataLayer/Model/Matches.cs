@@ -30,6 +30,9 @@
 
         [JsonProperty("code")]
         public string Code { get; set; }
+
+        [JsonProperty("goals")]
+        public string Goals { get; set; }
     }
 
     public partial class TeamStatistics

@@ -5,8 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFProjekt"
         mc:Ignorable="d"
-        Title="RepsView" Height="450" Width="800">
+        Title="RepsView" Height="450" Width="800" MinWidth="600" MinHeight="400"
+        Loaded="Window_Loaded">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         
+        <StackPanel Grid.Row="0" Grid.Column="2" Margin="10">
+            <Label Content="Loading..." HorizontalAlignment="Center" x:Name="lblLoading" Foreground="Red"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+            <Label Content="Home Team" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" Margin="10">
+            <Label Content="Result" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="3" Margin="10">
+            <Label Content="Away Team" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10" Orientation="Horizontal">
+            <Button Content="Info" x:Name="btnHomeInfo" Click="btnHomeInfo_Click"/>
+            <ComboBox HorizontalAlignment="Center" MinWidth="100" x:Name="cbHomeTeam" SelectionChanged="cbHomeTeam_SelectionChanged"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Grid.Column="2" Margin="10">
+            <Label Content="X:X" HorizontalAlignment="Center" x:Name="lblResult"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="3" Margin="10" Orientation="Horizontal">
+            <ComboBox HorizontalAlignment="Center" MinWidth="100" x:Name="cbAwayTeam" SelectionChanged="cbAwayTeam_SelectionChanged"/>
+            <Button Content="Info" x:Name="btnAwayInfo" Click="btnAwayInfo_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="2" Margin="10">
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="1" Margin="10">
+            <Button Content="Confirm" HorizontalAlignment="Left" Click="ButtonConfirm_Click" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="4" Grid.Column="2" Margin="10">
+            <Button Content="Settings" HorizontalAlignment="Center" Click="ButtonSettings_Click" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="4" Grid.Column="3" Margin="10">
+            <Button Content="Cancel" HorizontalAlignment="Right" Click="ButtonCancel_Click" />
+        </StackPanel>
+
+
+
     </Grid>
 </Window>

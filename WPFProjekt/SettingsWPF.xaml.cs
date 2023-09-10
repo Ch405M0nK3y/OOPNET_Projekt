@@ -54,7 +54,14 @@ namespace WPFProjekt
             {
                 OpenRepsViewWindow();
             }
+            SetResolution();
             SetCheckboxes();
+        }
+
+        private void SetResolution()
+        {
+            this.Height = config.WPFHeight;
+            this.Width = config.WPFWidth;
         }
 
         private void OpenRepsViewWindow()
@@ -106,39 +113,33 @@ namespace WPFProjekt
             {
                 rbtnRes3.IsChecked = true;
             }
-            else if (config.WPFWidth == this.ActualWidth && config.WPFHeight == this.ActualHeight)
+            else if (config.WPFWidth == SystemParameters.PrimaryScreenWidth && config.WPFHeight == SystemParameters.PrimaryScreenHeight)
             {
                 rbtnResFull.IsChecked = true;
             }
+            else 
+            {
+                rbtnResCustom.IsChecked = true;
+            }
         }
-
+        
         private void ButtonConfirm_Click(object sender, RoutedEventArgs e) 
         {
             if (MessageBox.Show("Do you want to save these options?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation) == MessageBoxResult.Yes)
             {
                 config.PreferredLanguage = rbtnEnglish.IsChecked.HasValue && rbtnEnglish.IsChecked.Value ? DAL.Language.EN : DAL.Language.HR;
                 config.Priority = rbtnMen.IsChecked.HasValue && rbtnMen.IsChecked.Value ? DesiredPriority.Men : DesiredPriority.Women;
-                if (isResolutionChecked())
-                {
-                    config.WPFWidth = width;
-                    config.WPFHeight = height;
-                }
-                else
-                {
-                    config.WPFWidth = SystemParameters.PrimaryScreenWidth;
-                    config.WPFHeight = SystemParameters.PrimaryScreenHeight;
-                }
+                ResolutionCheck();
+                config.WPFWidth = width;
+                config.WPFHeight = height;
                 config.IsFirstSetup = false;
-
                 configRepository.Save(config);
-
                 OpenRepsViewWindow();
             }
         }
 
-        private bool isResolutionChecked()
+        private bool ResolutionCheck()
         {
-            bool h = false;
             foreach (var btn in spResolution.Children)
             {
                 RadioButton rbtn = btn as RadioButton;
@@ -146,16 +147,26 @@ namespace WPFProjekt
                 {
                     if (rbtn.Content.ToString() == "Fullscreen")
                     {
-                        return false;
+                        width = SystemParameters.PrimaryScreenWidth;
+                        height = SystemParameters.PrimaryScreenHeight;
+                        return true;
                     }
-                    h = true;
+                    else if (rbtn.Content.ToString() == "Custom")
+                    {
+                        width = this.ActualWidth;
+                        height = this.ActualHeight;
+                        return true;
+                    }
                     string content=rbtn.Content.ToString();
                     string[] contentsplit = content.Split('x');
-                    int.TryParse(contentsplit[0],out int width);
-                    int.TryParse(contentsplit[1],out int height);
+                    int.TryParse(contentsplit[0],out int rbtnwidth);
+                    width = rbtnwidth;
+                    int.TryParse(contentsplit[1],out int rbtnheight);
+                    height = rbtnheight;
+                    return true;
                 } 
             }
-            return h;
+            return false;
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)

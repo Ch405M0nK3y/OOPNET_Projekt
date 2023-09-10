@@ -1,0 +1,114 @@
+﻿<Window x:Class="WPFProjekt.RepInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFProjekt"
+        mc:Ignorable="d"
+        Title="RepInfo" Height="370" Width="300" MinHeight="370" MinWidth="300">
+    <Window.Style>
+        <Style TargetType="Window">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="Opacity"
+                                From="0.0" To="1.0" Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" >
+            <Label Content="Name:" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" >
+            <Label Content="" HorizontalAlignment="Left" x:Name="lblName"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" >
+            <Label Content="FIFA Code::" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" >
+            <Label Content="" HorizontalAlignment="Left" x:Name="lblFifaCode"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" >
+            <Label Content="Played games:" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="2" >
+            <Label Content="" HorizontalAlignment="Left" x:Name="lblPlayed"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="1" >
+            <Label Content="Wins:" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="2" >
+            <Label Content="" HorizontalAlignment="Left" x:Name="lblWins"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="1" >
+            <Label Content="Loses:" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="2" >
+            <Label Content="" HorizontalAlignment="Left" x:Name="lblLoses"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Grid.Column="1" >
+            <Label Content="Draws:" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Grid.Column="2" >
+            <Label Content="" HorizontalAlignment="Left" x:Name="lblDraws"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="7" Grid.Column="1" >
+            <Label Content="Goals scored:" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="2" >
+            <Label Content="" HorizontalAlignment="Left" x:Name="lblGoalsScored"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="8" Grid.Column="1" >
+            <Label Content="Goals taken:" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Grid.Row="8" Grid.Column="2" >
+            <Label Content="" HorizontalAlignment="Left" x:Name="lblGoalsTaken"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="9" Grid.Column="1" >
+            <Label Content="Goals Difference:" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Grid.Row="9" Grid.Column="2" >
+            <Label Content="" HorizontalAlignment="Left" x:Name="lblGoalsDifference"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="10" Grid.ColumnSpan="4">
+            <Button Content="OK" HorizontalAlignment="Center" Padding="5" Click="Button_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

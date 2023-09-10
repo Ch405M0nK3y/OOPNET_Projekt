@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFProjekt"
         mc:Ignorable="d"
-        Title="SettingsWPF" Height="450" Width="800">
+        Title="SettingsWPF" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinWidth="600" MinHeight="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
-            <Label Content="Settings" HorizontalAlignment="Center" />
+            <Label Content="Settings" HorizontalAlignment="Center"/>
         </StackPanel>
 
 
@@ -49,13 +49,14 @@
                 <RadioButton  Content="800x600" x:Name="rbtnRes1"/>
                 <RadioButton  Content="1024x768" x:Name="rbtnRes2"/>
                 <RadioButton  Content="1280x800" x:Name="rbtnRes3"/>
+                <RadioButton  Content="Custom" x:Name="rbtnResCustom"/>
             </StackPanel>
         </GroupBox>
 
         <!-- First Column, Fourth Row (Confirm Button) -->
-        <Button Grid.Row="5" Grid.Column="0" Content="Confirm" Margin="10" HorizontalAlignment="Right" Click="ButtonConfirm_Click" />
+        <Button Grid.Row="5" Grid.Column="0" Content="Confirm" Margin="10" Padding="5" HorizontalAlignment="Right" Click="ButtonConfirm_Click" />
 
         <!-- Third Column, Fourth Row (Cancel Button) -->
-        <Button Grid.Row="5" Grid.Column="2" Content="Cancel" Margin="10" HorizontalAlignment="Left" Click="ButtonCancel_Click" />
+        <Button Grid.Row="5" Grid.Column="2" Content="Cancel" Margin="10" Padding="5" HorizontalAlignment="Left" Click="ButtonCancel_Click" />
     </Grid>
 </Window>

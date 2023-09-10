@@ -39,7 +39,7 @@ namespace WFormsProjekt
                 {
                     cbTeamPicker.Text = representations.
                         Where(x => x.FifaCode == config.FavoriteRepFifaCode).
-                        FirstOrDefault().Country + " (" + config.FavoriteRepFifaCode.ToString() + ")";
+                        FirstOrDefault().Country + " (" + config.FavoriteRepFifaCode + ")";
                 }
                 catch { } //handles error when switching from male/female - missing fifacode
             }
@@ -56,7 +56,7 @@ namespace WFormsProjekt
             {
                 foreach (Representation rep in representations)
                 {
-                    cbTeamPicker.Items.Add(rep.Country + " (" + rep.FifaCode.ToString() + ")");
+                    cbTeamPicker.Items.Add(rep.Country + " (" + rep.FifaCode + ")");
                 }
             }
             catch (Exception ex)

@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:WPFProjekt"
              StartupUri="SettingsWPF.xaml">
     <Application.Resources>
-         
+        <Style TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="15 px" />
+        </Style>
     </Application.Resources>
 </Application>
