@@ -42,7 +42,7 @@ namespace WFormsProjekt
             AddFLP();
             InitDnD();
             LoadFavoritePlayers();
-            LoadPlayers();
+            await LoadPlayers();
             lblLoading.Visible = false;
         }
         private void AddFLP()
@@ -93,15 +93,19 @@ namespace WFormsProjekt
             }
         }
 
-        private void LoadPlayers()
+        private async Task LoadPlayers()
         {
+            lblLoading.Visible = true;
+            await Task.Delay(1);
             flpPlayers.Controls.Clear();
             flpFavoritePlayers.Controls.Clear();
             LoadPlayersLoop();
+            lblLoading.Visible = false;
         }
-
+        
         private void LoadPlayersLoop()
         {
+            
             List<Player> players = playerRepository.GetPlayers();
             foreach (var player in players)
             {
@@ -143,10 +147,10 @@ namespace WFormsProjekt
 
         private void btnRemove_Click(object sender, EventArgs e) => RemoveFromFavorite();
 
-        private void AddToFavorite()
+        private async Task AddToFavorite()
         {
             if (selectedPerson is null) return;
-
+            
             Player selectedPlayer = selectedPerson.GetPlayer();
             Player favoritePlayer = playerRepository.GetPlayer(selectedPlayer.Name); //find the player by name
 
@@ -159,11 +163,11 @@ namespace WFormsProjekt
                 }
                 playerRepository.AddPlayerToFavorite(favoritePlayer);
                 favoriteCount++;
-                LoadPlayers();
+                await LoadPlayers();
             }
         }
 
-        private void RemoveFromFavorite()
+        private async Task RemoveFromFavorite()
         {
             if (selectedPerson is null) return;
 
@@ -174,7 +178,7 @@ namespace WFormsProjekt
             {
                 playerRepository.RemovePlayerFromFavorite(favoritePlayer);
                 favoriteCount--;
-                LoadPlayers();
+                await LoadPlayers();
             }
         }
 
