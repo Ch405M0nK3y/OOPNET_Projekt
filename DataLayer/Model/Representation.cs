@@ -53,20 +53,5 @@ namespace DataLayer.Model
         [JsonProperty("goal_differential")]
         public long GoalDifferential { get; set; }
 
-        public static string SetPath(DesiredPriority priority, FileLoadingType loadingType)
-        {
-            string path;
-            string prio = priority.ToString().ToLower();
-
-            if (loadingType == FileLoadingType.JSON)
-            {
-                path = "\\" + prio + "\\results.json";
-            }
-            else
-            {
-                path = prio + "/teams/results";
-            }
-            return path;
-        }
     }
 }

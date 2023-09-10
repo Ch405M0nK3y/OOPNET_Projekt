@@ -9,7 +9,6 @@ namespace WFormsProjekt
     public partial class FavoriteTeamPicker : Form
     {
         Config config;
-        List<Representation> representations;
         ConfigRepository configRepository = RepoFactory.GetConfigRepository();
         RepresentationRepository representationRepository = RepoFactory.GetRepresentationRepository();
 
@@ -30,9 +29,11 @@ namespace WFormsProjekt
         private async void FavoriteTeamPicker_Load(object sender, EventArgs e)
         {
             lblLoading.Visible = true;
-            await LoadRepresentationsRepo();
+            await representationRepository.Load(config.LocalPath, config.Priority, config.LoadingType, "");
+
             cbTeamPicker.DropDownHeight = cbTeamPicker.ItemHeight * cbTeamPicker.MaxDropDownItems;
-            LoadTeams();
+            List<Representation> representations= representationRepository.GetRepresentations();
+            LoadTeams(representations);
             if (config.FavoriteRepFifaCode != "")
             {
                 try
@@ -46,11 +47,7 @@ namespace WFormsProjekt
             lblLoading.Visible = false;
         }
 
-        private async Task LoadRepresentationsRepo()
-        {
-            representations = await representationRepository.Load(config.LocalPath, config.Priority, config.LoadingType);
-        }
-        private void LoadTeams()
+        private void LoadTeams(List<Representation> representations)
         {
             try
             {
@@ -85,8 +82,7 @@ namespace WFormsProjekt
 
         private void cbTeamPicker_SelectedValueChanged(object sender, EventArgs e)
         {
-            int length = cbTeamPicker.Text.Length;
-            cbTeamPicker.Tag = cbTeamPicker.Text.Substring(length - 4, 3);
+            cbTeamPicker.Tag = cbTeamPicker.Text.Substring(cbTeamPicker.Text.Length - 4, 3); //set fifacode to .tag
         }
 
         private void FavoriteTeamPicker_KeyDown(object sender, KeyEventArgs e)
@@ -97,7 +93,5 @@ namespace WFormsProjekt
                 btnConfirm.PerformClick();
             }
         }
-
-
     }
 }

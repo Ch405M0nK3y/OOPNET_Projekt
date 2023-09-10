@@ -12,7 +12,6 @@ namespace WFormsProjekt
     public partial class FavoritePlayersPicker : Form
     {
         Config config;
-        List<Player> players;
         ConfigRepository configRepository = RepoFactory.GetConfigRepository();
         PlayerRepository playerRepository = RepoFactory.GetPlayerRepository();
 
@@ -39,30 +38,13 @@ namespace WFormsProjekt
         private async void FavoritePlayersPicker_Load(object sender, EventArgs e)
         {
             lblLoading.Visible = true;
-            await LoadPlayersRepo();
+            await playerRepository.Load(config.LocalPath, config.Priority, config.LoadingType, config.FavoriteRepFifaCode);
             AddFLP();
             InitDnD();
             LoadFavoritePlayers();
             LoadPlayers();
             lblLoading.Visible = false;
         }
-
-        private async Task LoadPlayersRepo()
-        {
-            players = await playerRepository.Load(config.LocalPath, config.Priority, config.LoadingType, config.FavoriteRepFifaCode);
-        }
-
-        private void InitDnD()
-        {
-            pnlPlayer.AllowDrop = true;
-            pnlPlayer.DragEnter += playerPanel_DragEnter;
-            pnlPlayer.DragDrop += playerPanel_DragDrop;
-
-            pnlFavoritePlayer.AllowDrop = true;
-            pnlFavoritePlayer.DragEnter += playerPanel_DragEnter;
-            pnlFavoritePlayer.DragDrop += playerPanel_DragDrop;
-        }
-
         private void AddFLP()
         {
             flpPlayers.AutoSize = true;
@@ -85,16 +67,27 @@ namespace WFormsProjekt
             pnlFavoritePlayer.Controls.Add(flpFavoritePlayers);
         }
 
+        private void InitDnD()
+        {
+            pnlPlayer.AllowDrop = true;
+            pnlPlayer.DragEnter += playerPanel_DragEnter;
+            pnlPlayer.DragDrop += playerPanel_DragDrop;
+
+            pnlFavoritePlayer.AllowDrop = true;
+            pnlFavoritePlayer.DragEnter += playerPanel_DragEnter;
+            pnlFavoritePlayer.DragDrop += playerPanel_DragDrop;
+        }
+
         private void LoadFavoritePlayers()
         {
             if (config.FavoritePlayers.Count == 0) return;
 
             foreach (var player in config.FavoritePlayers)
             {
-                var favoritePlayer = players.FirstOrDefault(x => x.Name == player);
+                var favoritePlayer = playerRepository.GetPlayer(player);
                 if (favoritePlayer != null)
                 {
-                    favoritePlayer.Favorite = true;
+                    playerRepository.AddPlayerToFavorite(favoritePlayer);
                     favoriteCount++;
                 }
             }
@@ -109,9 +102,10 @@ namespace WFormsProjekt
 
         private void LoadPlayersLoop()
         {
+            List<Player> players = playerRepository.GetPlayers();
             foreach (var player in players)
             {
-                PlayerPanel playerPanel = new PlayerPanel(player, config.GetImage(player.Name));
+                PlayerPanel playerPanel = new PlayerPanel(player, configRepository.GetImage(config.ImagePaths,player.Name));
 
                 playerPanel.Click += playerPanel_Click;
                 playerPanel.AllowDrop = true;
@@ -154,7 +148,7 @@ namespace WFormsProjekt
             if (selectedPerson is null) return;
 
             Player selectedPlayer = selectedPerson.GetPlayer();
-            var favoritePlayer = players.FirstOrDefault(x => x.Name == selectedPlayer.Name); //find the player by name
+            Player favoritePlayer = playerRepository.GetPlayer(selectedPlayer.Name); //find the player by name
 
             if (!favoritePlayer.Favorite)
             {
@@ -163,7 +157,7 @@ namespace WFormsProjekt
                     MessageBox.Show("Maximum number of favorite players has been reached", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-                favoritePlayer.Favorite = true;
+                playerRepository.AddPlayerToFavorite(favoritePlayer);
                 favoriteCount++;
                 LoadPlayers();
             }
@@ -174,11 +168,11 @@ namespace WFormsProjekt
             if (selectedPerson is null) return;
 
             Player selectedPlayer = selectedPerson.GetPlayer();
-            var favoritePlayer = players.FirstOrDefault(x => x.Name == selectedPlayer.Name); //find the player by name
+            var favoritePlayer = playerRepository.GetPlayer(selectedPlayer.Name); //find the player by name
 
             if (favoritePlayer.Favorite)
             {
-                favoritePlayer.Favorite = false;
+                playerRepository.RemovePlayerFromFavorite(favoritePlayer);
                 favoriteCount--;
                 LoadPlayers();
             }
@@ -186,13 +180,16 @@ namespace WFormsProjekt
 
         private void SaveFavoritePlayers()
         {
+            List<string> favoritePlayers = new();
+            List<Player> players = playerRepository.GetPlayers();
             foreach (var player in players)
             {
-                if (player.Favorite)
+                if (player.Favorite && favoritePlayers.Count <= 3)
                 {
-                    config.AddPlayer(player);
+                    favoritePlayers.Add(player.Name);
                 }
             }
+            config.FavoritePlayers = favoritePlayers;
             configRepository.Save(config);
         }
 
@@ -200,7 +197,7 @@ namespace WFormsProjekt
         {
             if (MessageBox.Show("Do you want to save and close this application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                config.ClearPlayers();
+                config.FavoritePlayers.Clear();
                 SaveFavoritePlayers();
                 this.Close();
             }
@@ -251,7 +248,7 @@ namespace WFormsProjekt
                     }
                     if (control is Label && (string)control.Tag == "Bop")
                     {
-                        config.AddImage(control.Text, fileName);
+                        config.ImagePaths = configRepository.AddImage(config.ImagePaths, control.Text, fileName);
                     }
                 }
             }

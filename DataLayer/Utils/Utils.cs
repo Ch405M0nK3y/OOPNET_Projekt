@@ -73,5 +73,28 @@ namespace DataLayer.Utils
                 return jsonObject;
             }
         }
+
+        public static string SetPath(DesiredPriority priority, FileLoadingType loadingType, string filename)
+        {
+            string path;
+            string prio = priority.ToString().ToLower();
+
+            if (loadingType == FileLoadingType.JSON)
+            {
+                path = "\\" + prio + $"\\{filename}.json";
+            }
+            else
+            {
+                if (filename=="results")
+                {
+                    path = prio + $"/teams/{filename}";
+                }
+                else 
+                {
+                    path = prio + $"/{filename}";
+                }
+            }
+            return path;
+        }
     }
 }

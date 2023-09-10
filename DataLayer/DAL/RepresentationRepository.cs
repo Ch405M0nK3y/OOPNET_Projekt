@@ -8,18 +8,23 @@ using System.Threading.Tasks;
 
 namespace DataLayer.DAL
 {
-    public class RepresentationRepository
+    public class RepresentationRepository : IRepo
     {
         public RepresentationRepository(){}
 
-        public async Task<List<Representation>> Load(string path, DesiredPriority desiredPriority, FileLoadingType loadingType)
+        private List<Representation> representations = new();
+        public async Task Load(string path, DesiredPriority desiredPriority, FileLoadingType loadingType, string FavoriteRepFifaCode)
         {
             string pathLocalOrUrl = loadingType == FileLoadingType.JSON ?
-                (path + Representation.SetPath(desiredPriority, loadingType)) :
-                (Representation.SetPath(desiredPriority, loadingType));
-            List<Representation> reps = await Utils.Utils.Load<Representation>(pathLocalOrUrl, loadingType);
-            return reps;
+                (path + Utils.Utils.SetPath(desiredPriority, loadingType, "results")) :
+                (Utils.Utils.SetPath(desiredPriority, loadingType, "results"));
+            representations = await Utils.Utils.Load<Representation>(pathLocalOrUrl, loadingType);
+            return;
         }
+
+        public List<Representation> GetRepresentations()=> representations;
+        
+        public Representation GetRep(string fifacode)=> representations.FirstOrDefault(x => x.FifaCode == fifacode);
 
     }
 }

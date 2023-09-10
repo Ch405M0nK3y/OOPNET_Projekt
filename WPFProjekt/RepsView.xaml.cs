@@ -4,6 +4,7 @@ using DataLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -26,13 +27,14 @@ namespace WPFProjekt
     {
         Config config;
         ConfigRepository configRepository = RepoFactory.GetConfigRepository();
-        List<Representation> representations;
         RepresentationRepository representationRepository = RepoFactory.GetRepresentationRepository();
-        List<Matches> matches;
+        
         MatchesRepository matchesRepository = RepoFactory.GetMatchesRepository();
         Representation homeTeam;
         Representation awayTeam;
         Matches playedMatch;
+
+
 
         public RepsView(Config conf)
         {
@@ -59,14 +61,18 @@ namespace WPFProjekt
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             lblLoading.Visibility = Visibility.Visible;
-            await LoadRepresentationsRepo();
-            await LoadMatchesRepo();
-            LoadHomeTeams();
+            await representationRepository.Load(config.LocalPath, config.Priority, config.LoadingType, "");
+            await matchesRepository.Load(config.LocalPath, config.Priority, config.LoadingType, "");
+
+            List<Representation> representations = representationRepository.GetRepresentations();
+            LoadHomeTeams(representations);
+
             if (config.FavoriteRepFifaCode != "")
             {
                 try
                 {
-                    cbHomeTeam.Text = representations.
+                    // select the favorite rep
+                    cbHomeTeam.SelectedItem = representations.
                         Where(x => x.FifaCode == config.FavoriteRepFifaCode).
                         FirstOrDefault().Country + " (" + config.FavoriteRepFifaCode.ToString() + ")";
                 }
@@ -75,17 +81,7 @@ namespace WPFProjekt
             lblLoading.Visibility = Visibility.Hidden;
         }
 
-        private async Task LoadRepresentationsRepo()
-        {
-            representations = await representationRepository.Load(config.LocalPath, config.Priority, config.LoadingType);
-        }
-
-        private async Task LoadMatchesRepo()
-        {
-            matches = await matchesRepository.Load(config.LocalPath, config.Priority, config.LoadingType);
-        }
-
-        private void LoadHomeTeams()
+        private void LoadHomeTeams(List<Representation> representations)
         {
             try
             {
@@ -119,7 +115,7 @@ namespace WPFProjekt
             try
             {
                 away = cbAwayTeam.SelectedItem.ToString().Substring(cbAwayTeam.SelectedItem.ToString().Length - 4, 3);
-                awayTeam = GetTeam(away);
+                awayTeam = representationRepository.GetRep(away);
             }
             catch { }
             SetResult(home,away);
@@ -127,25 +123,17 @@ namespace WPFProjekt
 
         private void SetResult(string home, string away)
         {
-            foreach (var match in matches)
+            Matches match = matchesRepository.GetPlayedGame(home, away);
+            if (match.HomeTeam.Code == home && match.AwayTeam.Code == away)
             {
-                if (match.HomeTeam.Code == home && match.AwayTeam.Code == away)
-                {
-                    lblResult.Content = $"{match.HomeTeam.Goals}:{match.AwayTeam.Goals} ";
-                    playedMatch = match;
-                }
-                else if (match.HomeTeam.Code == away && match.AwayTeam.Code == home)
-                {
-                    lblResult.Content = $"{match.AwayTeam.Goals}:{match.HomeTeam.Goals} ";
-                    playedMatch = match;
-                }
+                lblResult.Content = $"{match.HomeTeam.Goals}:{match.AwayTeam.Goals} ";
+                playedMatch = match;
             }
-        }
-
-        private Representation GetTeam(string fifacode)
-        {
-            Representation team = representations.FirstOrDefault(x => x.FifaCode == fifacode);
-            return team;
+            else if (match.HomeTeam.Code == away && match.AwayTeam.Code == home)
+            {
+                lblResult.Content = $"{match.AwayTeam.Goals}:{match.HomeTeam.Goals} ";
+                playedMatch = match;
+            }
         }
 
         private void cbHomeTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -154,30 +142,30 @@ namespace WPFProjekt
             lblLoading.Visibility = Visibility.Visible;
             cbAwayTeam.Items.Clear();
             LoadAwayRepresentations(config.FavoriteRepFifaCode);
-            homeTeam = GetTeam(config.FavoriteRepFifaCode);
+            homeTeam = representationRepository.GetRep(config.FavoriteRepFifaCode);
             lblLoading.Visibility = Visibility.Hidden;
         }
 
         private void LoadAwayRepresentations(string fifacode)
         {
-                foreach (var match in matches)
+            List<Matches> matches = matchesRepository.GetMatches();
+            foreach (var match in matches)
+            {
+                Representation rep = null;
+                if (match.HomeTeam.Code == fifacode)
                 {
-                    Representation rep = null;
-                    if (match.HomeTeam.Code == fifacode)
-                    {
-                        rep = representations.FirstOrDefault(rep => rep.FifaCode == match.AwayTeam.Code);
-                    }
-                    else if (match.AwayTeam.Code == fifacode)
-                    {
-                        rep = representations.FirstOrDefault(rep => rep.FifaCode == match.HomeTeam.Code);
-                    }
-
-                    if (rep != null)
-                    {
-                        cbAwayTeam.Items.Add(rep.Country + " (" + rep.FifaCode + ")");
-                    }
+                    rep = representationRepository.GetRep(match.AwayTeam.Code);
                 }
-            
+                else if (match.AwayTeam.Code == fifacode)
+                {
+                    rep = representationRepository.GetRep(match.HomeTeam.Code);
+                }
+
+                if (rep != null)
+                {
+                    cbAwayTeam.Items.Add(rep.Country + " (" + rep.FifaCode + ")");
+                }
+            }
         }
 
         private void ButtonConfirm_Click(object sender, RoutedEventArgs e)
