@@ -14,7 +14,7 @@
                         <Storyboard>
                             <DoubleAnimation
                                 Storyboard.TargetProperty="ScaleTransform"
-                                From="0" To="8" Duration="0:0:0.3" />
+                                From="50" To="0" Duration="0:0:0.3" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>

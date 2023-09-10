@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFProjekt"
         mc:Ignorable="d"
-        Title="SettingsWPF" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinWidth="600" MinHeight="400">
+        Title="SettingsWPF" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinWidth="600" MinHeight="400"
+        KeyDown="Settings_KeyDown"
+        >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

@@ -33,6 +33,7 @@
             lbl1 = new Label();
             btnConfirm = new Button();
             lblLoading = new Label();
+            btnCancel = new Button();
             SuspendLayout();
             // 
             // cbTeamPicker
@@ -62,10 +63,17 @@
             lblLoading.ForeColor = Color.Red;
             lblLoading.Name = "lblLoading";
             // 
+            // btnCancel
+            // 
+            resources.ApplyResources(btnCancel, "btnCancel");
+            btnCancel.Name = "btnCancel";
+            btnCancel.UseVisualStyleBackColor = true;
+            // 
             // FavoriteTeamPicker
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnCancel);
             Controls.Add(lblLoading);
             Controls.Add(btnConfirm);
             Controls.Add(lbl1);
@@ -82,5 +90,6 @@
         private Label lbl1;
         private Button btnConfirm;
         private Label lblLoading;
+        private Button btnCancel;
     }
 }

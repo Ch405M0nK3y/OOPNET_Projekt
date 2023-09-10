@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:WPFProjekt"
         mc:Ignorable="d"
         Title="RepsView" Height="450" Width="800" MinWidth="600" MinHeight="400"
-        Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Loaded="Window_Loaded" WindowStartupLocation="CenterScreen"
+        KeyDown="RepsView_KeyDown"
+        >
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

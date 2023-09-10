@@ -171,7 +171,23 @@ namespace WPFProjekt
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation) == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void Settings_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ButtonConfirm_Click(sender, e);
+            }
+
+            if (e.Key == Key.Escape)
+            {
+                ButtonCancel_Click(sender, e);
+            }
         }
     }
 }

@@ -32,7 +32,7 @@ namespace WFormsProjekt
             await representationRepository.Load(config.LocalPath, config.Priority, config.LoadingType, "");
 
             cbTeamPicker.DropDownHeight = cbTeamPicker.ItemHeight * cbTeamPicker.MaxDropDownItems;
-            List<Representation> representations= representationRepository.GetRepresentations();
+            List<Representation> representations = representationRepository.GetRepresentations();
             LoadTeams(representations);
             if (config.FavoriteRepFifaCode != "")
             {
@@ -85,6 +85,14 @@ namespace WFormsProjekt
             cbTeamPicker.Tag = cbTeamPicker.Text.Substring(cbTeamPicker.Text.Length - 4, 3); //set fifacode to .tag
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
         private void FavoriteTeamPicker_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -92,6 +100,11 @@ namespace WFormsProjekt
             {
                 btnConfirm.PerformClick();
             }
+            if (e.KeyCode == Keys.Escape)
+            {
+                btnCancel.PerformClick();
+            }
         }
+
     }
 }

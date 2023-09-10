@@ -159,7 +159,10 @@ namespace WFormsProjekt
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void Settings_KeyDown(object sender, KeyEventArgs e)
