@@ -7,9 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\field.jpg" />
+    <None Remove="Resources\najboljiigrac.jpg" />
+    <None Remove="Resources\star-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RestSharp" Version="110.2.0" />
     <PackageReference Include="System.Text.Json" Version="7.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\field.jpg" />
+    <Resource Include="Resources\najboljiigrac.jpg" />
+    <Resource Include="Resources\star-icon.png" />
   </ItemGroup>
 
 </Project>

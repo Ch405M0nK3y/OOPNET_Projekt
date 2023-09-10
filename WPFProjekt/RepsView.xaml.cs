@@ -30,9 +30,9 @@ namespace WPFProjekt
         RepresentationRepository representationRepository = RepoFactory.GetRepresentationRepository();
         
         MatchesRepository matchesRepository = RepoFactory.GetMatchesRepository();
-        Representation homeTeam;
-        Representation awayTeam;
-        Matches playedMatch;
+        Representation homeTeam=new();
+        Representation awayTeam=new();
+        Matches playedMatch=new();
 
 
 
@@ -50,7 +50,7 @@ namespace WPFProjekt
             this.Width = config.WPFWidth;
         }
 
-        private void SetCulture(string lang)
+        private static void SetCulture(string lang)
         {
             var culture = new CultureInfo(lang);
 
@@ -96,19 +96,19 @@ namespace WPFProjekt
             }
         }
 
-        private void btnAwayInfo_Click(object sender, RoutedEventArgs e)
+        private void BtnAwayInfo_Click(object sender, RoutedEventArgs e)
         {
             var infoWindow = new RepInfo(awayTeam);
             infoWindow.Show();
         }
 
-        private void btnHomeInfo_Click(object sender, RoutedEventArgs e)
+        private void BtnHomeInfo_Click(object sender, RoutedEventArgs e)
         {
             var infoWindow = new RepInfo(homeTeam);
             infoWindow.Show();
         }
 
-        private void cbAwayTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CbAwayTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string home = config.FavoriteRepFifaCode;
             string away = "";
@@ -134,9 +134,18 @@ namespace WPFProjekt
                 lblResult.Content = $"{match.AwayTeam.Goals}:{match.HomeTeam.Goals} ";
                 playedMatch = match;
             }
+            LoadStartingEleven();
+        }
+        
+        private void LoadStartingEleven()
+        {
+
+            frField.Navigate(new StartingEleven(config, playedMatch));
+            
+
         }
 
-        private void cbHomeTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CbHomeTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             config.FavoriteRepFifaCode = cbHomeTeam.SelectedItem.ToString().Substring(cbHomeTeam.SelectedItem.ToString().Length - 4, 3);
             lblLoading.Visibility = Visibility.Visible;

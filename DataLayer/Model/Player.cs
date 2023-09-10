@@ -26,7 +26,5 @@ namespace DataLayer.Model
 
         public bool Favorite { get; set; }
 
-        public string? ImagePath { get; set; }
-
     }
 }

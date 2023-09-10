@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="PlayerInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlayerUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="RepInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,8 +22,17 @@
     <Compile Update="SettingsWPF.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="StartingEleven.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="PlayerInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlayerUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="RepInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -25,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SettingsWPF.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StartingEleven.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -16,8 +16,8 @@ namespace DataLayer.DAL
     {
         public ConfigRepository(){}
 
-        private static string? DIR; // path to resources folder
-        private static string? FILE_PATH; //path to config.txt
+        private static string DIR; // path to resources folder
+        private static string FILE_PATH; //path to config.txt
 
         public Config Load(string path) 
         {
