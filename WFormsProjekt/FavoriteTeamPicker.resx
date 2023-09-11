@@ -58,162 +58,165 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="cbTeamPicker.Size" type="System.Drawing.Size, System.Drawing">
-    <value>514, 36</value>
+  <data name="lblLoading.Location" type="System.Drawing.Point, System.Drawing">
+    <value>537, 36</value>
+  </data>
+  <data name="&gt;&gt;lblLoading.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cbTeamPicker.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FavoriteTeamPicker</value>
   </data>
-  <data name="lbl1.Text" xml:space="preserve">
-    <value>Pick your favorite team:</value>
-  </data>
-  <data name="btnConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 64</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lbl1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="cbTeamPicker.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;btnConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 28</value>
-  </data>
-  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>717, 382</value>
-  </data>
-  <data name="lblLoading.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="&gt;&gt;lbl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbTeamPicker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>346, 308</value>
-  </data>
-  <data name="lblLoading.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>346, 382</value>
-  </data>
-  <data name="lblLoading.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 28</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblLoading.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl1.Name" xml:space="preserve">
-    <value>lbl1</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
-    <value>btnCancel</value>
-  </data>
-  <data name="btnConfirm.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;lbl1.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="cbTeamPicker.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="lbl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>346, 251</value>
   </data>
+  <data name="&gt;&gt;lbl1.Name" xml:space="preserve">
+    <value>lbl1</value>
+  </data>
+  <data name="&gt;&gt;lbl1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnConfirm.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblLoading.Text" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
   <data name="lblLoading.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15pt, style=Bold</value>
+  </data>
+  <data name="lbl1.Text" xml:space="preserve">
+    <value>Pick your favorite team:</value>
+  </data>
+  <data name="lblLoading.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;cbTeamPicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>717, 382</value>
+  </data>
+  <data name="&gt;&gt;btnConfirm.Name" xml:space="preserve">
+    <value>btnConfirm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLoading.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLoading.Name" xml:space="preserve">
+    <value>lblLoading</value>
+  </data>
+  <data name="cbTeamPicker.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lbl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cbTeamPicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>514, 36</value>
+  </data>
+  <data name="&gt;&gt;cbTeamPicker.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lbl1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="lblLoading.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblLoading.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 28</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
+  </data>
+  <data name="lbl1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 15pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;cbTeamPicker.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblLoading.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="btnConfirm.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FavoriteTeamPicker</value>
+  </data>
+  <data name="&gt;&gt;btnConfirm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
-  <data name="&gt;&gt;lblLoading.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnConfirm.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbTeamPicker.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lblLoading.Text" xml:space="preserve">
-    <value>Loading...</value>
-  </data>
   <data name="&gt;&gt;btnConfirm.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="lblLoading.Location" type="System.Drawing.Point, System.Drawing">
-    <value>537, 36</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FavoriteTeamPicker</value>
-  </data>
-  <data name="&gt;&gt;lblLoading.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbl1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;cbTeamPicker.Name" xml:space="preserve">
     <value>cbTeamPicker</value>
   </data>
-  <data name="btnConfirm.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15pt, style=Bold</value>
-  </data>
-  <data name="cbTeamPicker.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lblLoading.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
   </data>
   <data name="btnConfirm.Text" xml:space="preserve">
     <value>Confirm</value>
   </data>
-  <data name="lbl1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="cbTeamPicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 308</value>
   </data>
-  <data name="&gt;&gt;lblLoading.Name" xml:space="preserve">
-    <value>lblLoading</value>
+  <data name="btnConfirm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 382</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1184, 761</value>
   </data>
-  <data name="&gt;&gt;btnConfirm.Name" xml:space="preserve">
-    <value>btnConfirm</value>
-  </data>
-  <data name="&gt;&gt;cbTeamPicker.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbl1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lbl1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>hr</value>
-  </metadata>
+  <data name="btnConfirm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 64</value>
+  </data>
+  <data name="lblLoading.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 28</value>
+  </data>
+  <data name="btnConfirm.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15pt, style=Bold</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+    <value>en</value>
   </metadata>
 </root>

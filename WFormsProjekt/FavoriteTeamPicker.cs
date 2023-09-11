@@ -105,6 +105,5 @@ namespace WFormsProjekt
                 btnCancel.PerformClick();
             }
         }
-
     }
 }

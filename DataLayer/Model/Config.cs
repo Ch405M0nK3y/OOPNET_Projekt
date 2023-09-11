@@ -40,8 +40,8 @@ namespace DAL
             PreferredLanguage = Language.EN;
             FavoriteRepFifaCode = "";
             IsFirstSetup= true;
-            WPFWidth = 800;
-            WPFHeight = 600;
+            WPFWidth = 0;
+            WPFHeight = 0;
             ImagePaths = new Dictionary<string,string>();
         }
 

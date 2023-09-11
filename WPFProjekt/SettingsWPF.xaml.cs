@@ -50,7 +50,7 @@ namespace WPFProjekt
 
         private void Init() 
         {
-            if (!config.IsFirstSetup)
+            if (!config.IsFirstSetup && config.WPFHeight!=0 && config.WPFWidth!=0)
             {
                 OpenRepsViewWindow();
             }
@@ -188,6 +188,22 @@ namespace WPFProjekt
             {
                 ButtonCancel_Click(sender, e);
             }
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            
+            double newSize = CalculateNewFontSize(e.NewSize.Width);
+
+            winSettings.FontSize = newSize;
+        }
+
+        private double CalculateNewFontSize(double windowWidth)
+        {
+            double baseFontSize = 15;  
+            double scaleFactor = windowWidth / 800; 
+
+            return baseFontSize * scaleFactor;
         }
     }
 }

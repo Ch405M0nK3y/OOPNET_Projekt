@@ -68,6 +68,7 @@
             resources.ApplyResources(btnCancel, "btnCancel");
             btnCancel.Name = "btnCancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // FavoriteTeamPicker
             // 

@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFProjekt"
         mc:Ignorable="d"
-        Title="RepsView" Height="450" Width="800" MinWidth="600" MinHeight="400"
+        Title="RepsView" Height="628" Width="1023" MinWidth="830" MinHeight="620"
         Loaded="Window_Loaded" WindowStartupLocation="CenterScreen"
         KeyDown="RepsView_KeyDown"
+        SizeChanged="Window_SizeChanged"
+        FontSize="12"
+        x:Name="winRepsView"
         >
     <Grid >
         <Grid.RowDefinitions>
@@ -25,11 +28,11 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
+
         <StackPanel Grid.Row="0" Grid.Column="2" Margin="10">
             <Label Content="Loading..." HorizontalAlignment="Center" x:Name="lblLoading" Foreground="Red"/>
         </StackPanel>
-        
+
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
             <Label Content="Home Team" HorizontalAlignment="Center"/>
         </StackPanel>
@@ -44,7 +47,7 @@
             <Button Content="Info" x:Name="btnHomeInfo" Click="BtnHomeInfo_Click"/>
             <ComboBox HorizontalAlignment="Center" MinWidth="100" x:Name="cbHomeTeam" SelectionChanged="CbHomeTeam_SelectionChanged"/>
         </StackPanel>
-        
+
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="10">
             <Label Content="X:X" HorizontalAlignment="Center" x:Name="lblResult"/>
         </StackPanel>
@@ -61,11 +64,11 @@
         <StackPanel Grid.Row="4" Grid.Column="1" Margin="10">
             <Button Content="Confirm" HorizontalAlignment="Left" Click="ButtonConfirm_Click" />
         </StackPanel>
-        
+
         <StackPanel Grid.Row="4" Grid.Column="2" Margin="10">
             <Button Content="Settings" HorizontalAlignment="Center" Click="ButtonSettings_Click" />
         </StackPanel>
-        
+
         <StackPanel Grid.Row="4" Grid.Column="3" Margin="10">
             <Button Content="Cancel" HorizontalAlignment="Right" Click="ButtonCancel_Click" />
         </StackPanel>

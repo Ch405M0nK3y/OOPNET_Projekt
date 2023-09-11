@@ -116,9 +116,9 @@ namespace WPFProjekt
             {
                 away = cbAwayTeam.SelectedItem.ToString().Substring(cbAwayTeam.SelectedItem.ToString().Length - 4, 3);
                 awayTeam = representationRepository.GetRep(away);
+                SetResult(home, away);
             }
             catch { }
-            SetResult(home,away);
         }
 
         private void SetResult(string home, string away)
@@ -220,6 +220,22 @@ namespace WPFProjekt
             {
                 ButtonCancel_Click(sender, e);
             }
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+            double newSize = CalculateNewFontSize(e.NewSize.Width);
+
+            winRepsView.FontSize = newSize;
+        }
+
+        private double CalculateNewFontSize(double windowWidth)
+        {
+            double baseFontSize = 15;
+            double scaleFactor = windowWidth / 800;
+
+            return baseFontSize * scaleFactor;
         }
     }
 }
